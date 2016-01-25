@@ -2,3 +2,9 @@
 This should not
 //And this should as well
 ??But not this one//	
+/*
+Everything
+in here
+should print
+*/
+but this should not
