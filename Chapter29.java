@@ -50,3 +50,12 @@ class MicrowaveMenu {
 		return time.substring(0,time.length()-2) + ":" + time.substring(time.length()-2);
 	}
 }
+
+// class DocumentationPrinter {
+// 	public static void main(String[] args) {
+// 		Scanner input = new Scanner(File("test"));
+
+// 		System.out.println(input);
+
+// 	}
+// }
