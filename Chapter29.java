@@ -26,7 +26,7 @@ class TitleApplier {
   			name.startsWith("Graham")) {
 	  		return 0;
   		} else if (name.startsWith("Amy") ||
-  				   name.startsWith("Buffy") ||
+  				   name.startsWith("Buffy")   ||
   				   name.startsWith("Cathy")) {
 	  		return 1;
   		}
@@ -80,5 +80,49 @@ class BetterDocumentationPrinter {
         System.out.println(line);
       }
     }
+  }
+}
+
+class PasswordChecker {
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    boolean okay = false;
+
+    System.out.println("Acceptable passwords:\n" +
+                        "- Are at least 7 characters long\n" +
+                        "- Contain both upper and lower case alphabetic characters\n" +
+                        "- Contain at least 1 digit.\n");
+    while (!okay) {
+      System.out.println("Enter your password: ");
+      String password = input.next();
+      if (password.length() >= 7  &&
+          containsUpper(password) && 
+          containsLower(password) &&
+          containsNumber(password)) okay = true;
+      if (!okay) System.out.println("That password is not acceptable.\n");
+    }
+  
+      System.out.println("Acceptable password.");
+  }
+  
+  public static boolean containsUpper(String password) {
+    for (int i=0; i<password.length(); i++) {
+      if (Character.isUpperCase(password.charAt(i))) return true;
+    }
+    return false;
+  }
+  
+  public static boolean containsLower(String password) {
+    for (int i=0; i<password.length(); i++) {
+      if (Character.isLowerCase(password.charAt(i))) return true; 
+    }
+    return false;
+  }
+
+  public static boolean containsNumber(String password) {
+    for (int i=0; i<password.length(); i++) {
+      if (Character.isDigit(password.charAt(i))) return true;
+    }
+    return false;
   }
 }
