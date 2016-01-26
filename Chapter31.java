@@ -6,10 +6,13 @@ class Car {
 	double endMiles;
 	double gallons;
 
-	Car(double first, double last, double gals) {
+	Car(double first) {
 		startMiles = first;
-		endMiles = last;
-		gallons = gals;
+	}
+
+	void fillUp(double miles, double gallons) {
+		endMiles = miles;
+		gallons = gallons;
 	}
 
 	double calculateMPG() {
@@ -30,16 +33,20 @@ class MilesPerGallon {
 		Scanner input = new Scanner(System.in);
 		double startMiles, endMiles, gallons;
 
-		System.out.print("Enter first reading: "); 
+		System.out.print("Current odometer reading: "); 
     	startMiles = input.nextDouble();
-		System.out.print("Enter second reading: "); 
-  		endMiles = input.nextDouble();
-		System.out.print("Enter gallons: ");
-		gallons = input.nextDouble();
 
-	    Car car = new Car(startMiles, endMiles, gallons);
+	    Car car = new Car(startMiles);
+ 
+	    System.out.println("You've filled up the tank after driving? ");
+	    System.out.print("Current odometer reading: ");
+	    endMiles = input.nextDouble();
+	    System.out.print("Gas put in: ");
+	    gallons = input.nextDouble();
+    	
+    	car.fillUp(endMiles, gallons);
+    	System.out.println("Miles per gallon: " + car.calculateMPG());
 
-    	System.out.println("Miles per gallon is " + car.calculateMPG());
     	if (car.gasHog()) {
     		System.out.println("What a gas hog.");
     	}
